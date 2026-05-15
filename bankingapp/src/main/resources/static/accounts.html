@@ -1,0 +1,191 @@
+<!-- ========================= accounts.html ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Records</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo-section">
+
+<img src="logo.png" class="sidebar-logo">
+
+<h2>SMART BANK</h2>
+
+</div>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="accounts.html">Customer Records</a>
+
+<a href="create-account.html">Create Account</a>
+
+<a href="transaction.html">Transactions</a>
+
+<a href="reports.html">Reports</a>
+
+</div>
+
+<div class="main-content">
+
+<h1>Customer Records</h1>
+
+<input type="text"
+id="searchBox"
+class="search-box"
+placeholder="Search Customer..."
+onkeyup="searchCustomer()">
+
+<div class="table-container">
+
+<table id="customerTable">
+
+<thead>
+
+<tr>
+
+<th>Profile</th>
+
+<th>Account No</th>
+
+<th>Name</th>
+
+<th>Balance</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tableBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+fetch("/accounts")
+
+.then(response=>response.json())
+
+.then(data=>{
+
+let output="";
+
+data.forEach(account=>{
+
+let balanceValue=account.balance;
+
+if(balanceValue==null){
+
+balanceValue=0;
+
+}
+
+output += `
+
+<tr>
+
+<td>
+
+<div class="profile-circle">
+
+${account.name.charAt(0)}
+
+</div>
+
+</td>
+
+<td>${account.id}</td>
+
+<td>${account.name}</td>
+
+<td>Rs. ${balanceValue}</td>
+
+<td>
+
+<span class="active-status">
+
+Active
+
+</span>
+
+</td>
+
+<td>
+
+<a href="edit-account.html">
+
+<button class="small-btn">
+
+Edit
+
+</button>
+
+</a>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("tableBody").innerHTML=output;
+
+});
+
+function searchCustomer(){
+
+let input=
+document.getElementById("searchBox").value.toLowerCase();
+
+let rows=
+document.querySelectorAll("#customerTable tbody tr");
+
+rows.forEach(row=>{
+
+let text=row.innerText.toLowerCase();
+
+if(text.includes(input)){
+
+row.style.display="";
+
+}
+else{
+
+row.style.display="none";
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create New Account</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="login-body">
+
+<div class="register-container">
+
+<div class="register-box">
+
+<div class="register-header">
+
+<img src="logo.png" class="bank-logo">
+
+<h1>SMART BANK</h1>
+
+<p>
+Open Your Secure Banking Account
+</p>
+
+</div>
+
+<form onsubmit="createAccount(event)">
+
+<div class="register-grid">
+
+<div class="input-group">
+<label>Customer Full Name</label>
+<input type="text"
+placeholder="Enter Full Name"
+required>
+</div>
+
+<div class="input-group">
+<label>Phone Number</label>
+<input type="text"
+placeholder="Enter Phone Number"
+required>
+</div>
+
+<div class="input-group">
+<label>Email Address</label>
+<input type="email"
+placeholder="Enter Email Address">
+</div>
+
+<div class="input-group">
+<label>Date of Birth</label>
+<input type="date">
+</div>
+
+<div class="input-group">
+<label>Gender</label>
+
+<select>
+
+<option>Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+<label>Aadhaar Number</label>
+<input type="text"
+placeholder="Enter Aadhaar Number">
+</div>
+
+<div class="input-group">
+<label>PAN Number</label>
+<input type="text"
+placeholder="Enter PAN Number">
+</div>
+
+<div class="input-group">
+<label>Branch Name</label>
+<input type="text"
+placeholder="Enter Branch Name">
+</div>
+
+<div class="input-group">
+<label>IFSC Code</label>
+<input type="text"
+placeholder="Enter IFSC Code">
+</div>
+
+<div class="input-group">
+<label>Opening Balance</label>
+<input type="number"
+placeholder="Enter Opening Balance">
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Residential Address</label>
+
+<textarea rows="4"
+placeholder="Enter Full Address">
+</textarea>
+
+</div>
+
+<button type="submit"
+class="register-btn">
+
+Create Bank Account
+
+</button>
+
+</form>
+
+<div class="back-login">
+
+<a href="index.html">
+
+← Back To Login
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function createAccount(event){
+
+event.preventDefault();
+
+alert("Account Created Successfully");
+
+window.location.href = "index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

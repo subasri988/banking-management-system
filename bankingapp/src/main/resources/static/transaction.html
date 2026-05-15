@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Transactions</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<script>
+
+if(localStorage.getItem("loggedIn")!="true"){
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+<div class="sidebar">
+
+<div class="logo-section">
+
+<img src="logo.png" class="sidebar-logo">
+
+<h2>SMART BANK</h2>
+
+</div>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="transaction.html">Transactions</a>
+
+<a href="transaction-history.html">
+
+Transaction History
+
+</a>
+
+<a href="accounts.html">
+
+Customer Records
+
+</a>
+
+</div>
+
+<div class="main-content">
+
+<h1>Bank Transactions</h1>
+
+<div class="form-container">
+
+<div class="form-row">
+
+<div class="input-group">
+
+<label>Account Number</label>
+
+<input type="number"
+id="accountNumber"
+placeholder="Enter Account Number">
+
+</div>
+
+<div class="input-group">
+
+<label>Customer Name</label>
+
+<input type="text"
+id="customerName"
+placeholder="Enter Customer Name">
+
+</div>
+
+</div>
+
+<div class="form-row">
+
+<div class="input-group">
+
+<label>Transaction Type</label>
+
+<select id="transactionType">
+
+<option value="">Select Transaction</option>
+
+<option>Deposit</option>
+
+<option>Withdraw</option>
+
+<option>Transfer</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>Transaction Amount</label>
+
+<input type="number"
+id="amount"
+placeholder="Enter Amount">
+
+</div>
+
+</div>
+
+<div class="form-row">
+
+<div class="input-group">
+
+<label>Transaction Date</label>
+
+<input type="date"
+id="transactionDate">
+
+</div>
+
+<div class="input-group">
+
+<label>Remarks</label>
+
+<input type="text"
+id="remarks"
+placeholder="Enter Remarks">
+
+</div>
+
+</div>
+
+<button onclick="processTransaction()">
+
+Proceed Transaction
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function processTransaction(){
+
+let accountNumber=
+document.getElementById("accountNumber").value;
+
+let customerName=
+document.getElementById("customerName").value;
+
+let transactionType=
+document.getElementById("transactionType").value;
+
+let amount=
+document.getElementById("amount").value;
+
+let transactionDate=
+document.getElementById("transactionDate").value;
+
+if(accountNumber==="" ||
+customerName==="" ||
+transactionType==="" ||
+amount==="" ||
+transactionDate===""){
+
+alert("Please Fill All Fields");
+
+return;
+
+}
+
+if(amount<=0){
+
+alert("Amount Must Be Greater Than Zero");
+
+return;
+
+}
+
+alert("Transaction Processed Successfully");
+
+document.getElementById("accountNumber").value="";
+document.getElementById("customerName").value="";
+document.getElementById("transactionType").value="";
+document.getElementById("amount").value="";
+document.getElementById("transactionDate").value="";
+document.getElementById("remarks").value="";
+
+}
+
+</script>
+
+</body>
+
+</html>

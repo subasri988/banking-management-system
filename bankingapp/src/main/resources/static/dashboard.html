@@ -1,0 +1,122 @@
+<!-- ========================= dashboard.html ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="dashboard.js"></script>
+
+</head>
+
+<body>
+
+<script>
+
+if(localStorage.getItem("loggedIn")!="true"){
+
+window.location.href="index.html";
+
+}
+
+function logout(){
+
+localStorage.removeItem("loggedIn");
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+<div class="sidebar">
+
+<div class="logo-section">
+
+<img src="logo.png" class="sidebar-logo">
+
+<h2>SMART BANK</h2>
+
+</div>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="create-account.html">Create Account</a>
+
+<a href="accounts.html">Customer Records</a>
+
+<a href="transaction.html">Transactions</a>
+
+<a href="transaction-history.html">Transaction History</a>
+
+<a href="profile.html">Customer Profile</a>
+
+<a href="reports.html">Reports</a>
+
+<a href="settings.html">Settings</a>
+
+<a href="#" onclick="logout()">Logout</a>
+
+</div>
+
+<div class="main-content">
+
+<div class="top-bar">
+
+<h1>Bank Dashboard</h1>
+
+</div>
+
+<div class="card-container">
+
+<div class="dashboard-card">
+
+<h3>Total Customers</h3>
+
+<h2>120</h2>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>Total Transactions</h3>
+
+<h2>540</h2>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>Total Balance</h3>
+
+<h2>Rs. 5,00,000</h2>
+
+</div>
+
+</div>
+
+<div class="welcome-section">
+
+<h2>Welcome to Smart Banking System</h2>
+
+<p>
+
+Manage accounts, customers, transactions and reports securely.
+
+</p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
